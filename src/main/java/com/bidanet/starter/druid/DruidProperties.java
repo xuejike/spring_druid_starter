@@ -55,7 +55,7 @@ public class DruidProperties {
     private Integer timeBetweenEvictionRunsMillis;
     private Integer minEvictableIdleTimeMillis;
     private List<String> connectionInitSqls;
-    private String filters="stat,mergeStat,encoding,slf4j";
+    private String filters="stat,mergeStat,encoding,slf4j,wall";
     private Properties connectionProperties;
     private List<com.alibaba.druid.filter.Filter> proxyFilters;
 
