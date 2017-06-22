@@ -17,6 +17,7 @@ import org.springframework.context.annotation.Configuration;
 
 import javax.sql.DataSource;
 import java.sql.SQLException;
+import java.util.Properties;
 
 /**
  * Created by xuejike on 2017/6/22.
@@ -86,6 +87,12 @@ public class DruidConfig {
             dataSource.setProxyFilters(properties.getProxyFilters());
         }
 
+        Properties properties = new Properties();
+        properties.put("druid.stat.mergeSql",true);
+        properties.put("druid.stat.slowSqlMillis",3000);
+        dataSource.setConnectProperties(properties);
+
+        setNotNull(this.properties.getConnectionProperties(), dataSource::setConnectProperties);
 //        druidDataSource.setConnectProperties();
 
         return dataSource;

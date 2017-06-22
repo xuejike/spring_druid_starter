@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 import java.util.List;
+import java.util.Properties;
 
 /**
  * Created by xuejike on 2017/6/22.
@@ -54,7 +55,8 @@ public class DruidProperties {
     private Integer timeBetweenEvictionRunsMillis;
     private Integer minEvictableIdleTimeMillis;
     private List<String> connectionInitSqls;
-    private String filters;
+    private String filters="stat,mergeStat,encoding,slf4j";
+    private Properties connectionProperties;
     private List<com.alibaba.druid.filter.Filter> proxyFilters;
 
 
@@ -347,5 +349,13 @@ public class DruidProperties {
 
     public void setMonitorFilterExclusions(String monitorFilterExclusions) {
         this.monitorFilterExclusions = monitorFilterExclusions;
+    }
+
+    public Properties getConnectionProperties() {
+        return connectionProperties;
+    }
+
+    public void setConnectionProperties(Properties connectionProperties) {
+        this.connectionProperties = connectionProperties;
     }
 }
